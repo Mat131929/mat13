@@ -1,0 +1,19 @@
+.texto {
+    font-family:sans-serif;
+    font-size: 18px;
+    color: black; 
+    width: 200px; 
+    height: 100px; 
+    background-color: green; 
+    padding: 10px; 
+    text-align: center; 
+}
+
+.texto:hover {
+    background-color: yellow; 
+    border-radius: 10px; 
+    transform: rotate(3deg); 
+}
+.texto:active {
+    box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.9);
+}
