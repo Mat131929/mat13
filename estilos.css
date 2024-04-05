@@ -1,0 +1,97 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul a {
+    color: white;
+}
+
+nav ul a:hover {
+    transition: background-color 0.3s;
+}
+
+nav ul li {
+    display: inline-block; 
+    padding: 10px;
+    background-color: red; 
+    transition: background-color 0.3s; 
+}
+
+nav ul li:hover {
+    background-color: purple; 
+    transition: background-color 0.3s;
+}
+
+section {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+aside#der {
+    width: 30%;
+    background-color: red;
+    padding: 20px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+#logo {
+    font-size: 24px;
+}
+
+.Menu {
+    cursor: pointer;
+}
+
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: purple;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: red;
+}
