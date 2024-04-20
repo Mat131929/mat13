@@ -1,0 +1,17 @@
+div{
+      margin: 15px;
+      padding: 15px;
+      background-color: gray;
+}
+
+#cadena{
+      height: 10px;
+      width: 100%
+}
+
+input{
+      padding: 12px;
+      height: 50px;
+      width: 100%;
+      background-color: pink;
+}
