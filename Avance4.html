@@ -6,6 +6,16 @@
       <meta charset="utf-8">
       <meta name="autor" content="UPSLP">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="jquery-ui-1.8.17.custom.min.js"></script>
+  <script type="text/javascript" src="jspdf.js"></script>
+  <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+  <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+  <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+  <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
       
 </head>
 <body>
@@ -292,5 +302,107 @@
             <p>Algunas habilidades importantes incluyen la capacidad para programar en lenguajes como Python o R, experiencia en bases de datos y tecnologías de almacenamiento como Hadoop y SQL, comprensión de técnicas de análisis estadístico y aprendizaje automático, habilidades de visualización de datos, y capacidad para trabajar con herramientas y plataformas de análisis de datos como TensorFlow o Apache Spark. Además, es crucial tener habilidades de resolución de problemas y pensamiento analítico.</p>
     </ul>
   </article>
+        <div class="titulo-encuesta">
+  <header align="center">
+      <h1>Encuesta para ver lo aprendido </h1>
+</div>
+      <hr width="80%" align="center" size="3px" noshade color="red" />
+  </header>
+
+  <script>
+var total;
+function califica()
+    {var total=0;
+      //Evalua cada pregunta
+      for (var x=1;x<=4;x++)
+      {
+        var res=0;
+        var nom="r"+x;
+        var resul=document.getElementsByName(nom);
+        for(var i=0;i<resul.length;i++)
+        {
+            if(resul[i].checked==true)
+                res=parseInt(resul[i].value);
+        }
+        total=total+res;
+        document.getElementById("total").innerHTML="Puntos obtenidos: "+total+" Puntos";
+        }
+        if(total==20)
+          document.getElementById("comentario").innerHTML="EXCELENTE!!!";
+        else
+          if(total==15)
+          document.getElementById("comentario").innerHTML="Regular!!";
+        else
+          if(total<=15)
+          document.getElementById("comentario").innerHTML="Estudia un poco más";
+    }
+
+ 
+function generar(){
+
+//Crear un objeto o instancia jsPDF
+var doc = new jsPDF();
+
+//Definir el tamaño de la letra
+doc.setFontSize(40);
+//Color del texto
+doc.setTextColor(9,7,121);
+doc.text(40, 20, "Conceptos basicos");
+doc.setTextColor(17, 122, 209); //Color en formato RGB
+doc.setFontSize(30);
+doc.text(50, 35, "Resultados del test"); //Ubicación, Texto
+doc.setTextColor(0,0,0);
+doc.setFontSize(10);
+doc.text(20, 50, "20 puntos. Muy bien. \r Todas tus respuestas son correctas");
+doc.text(20, 70, "15 puntos. Regular. \r Obtuviste 3 preguntas correctas");
+doc.text(20, 90, "0 puntos. \r Todas tus respuestas son incorrectas");
+
+//doc.addImage(imgData, 'JPEG', 10, 40, 180, 180);
+
+var string = doc.output('datauristring');
+
+$('iframe').attr('src', string);
+
+}
+</script>
+
+<body>
+    
+  <form>
+  <ul>
+
+    <li>¿Cuál de las siguientes afirmaciones describe mejor Big Data?</li>
+    <input type="radio" name="r1" id="r1" value="0"/>Un término que se refiere únicamente al tamaño de los conjuntos de datos.<br/>
+    <input type="radio" name="r1" id="r1" value="0"/>El proceso de almacenar datos en una única ubicación centralizada.<br/>
+    <input type="radio" name="r1" id="r1" value="5"/>Un enfoque para analizar conjuntos de datos complejos y de gran tamaño.<br/>
+    <input type="radio" name="r1" id="r1" value="0"/>La práctica de eliminar datos irrelevantes para reducir el tamaño de los conjuntos de datos.<br/>
+    
+    <li>¿Qué tecnología se utiliza comúnmente para procesar grandes volúmenes de datos en tiempo real?</li>
+    <input type="radio" name="r2" id="r2" value="0"/>SQL<br/>
+    <input type="radio" name="r2" id="r2" value="5"/>Hadoop<br/>
+    <input type="radio" name="r2" id="r2" value="0"/>Blockchain<br/>
+    <input type="radio" name="r2" id="r2" value="0"/>Python<br/>
+
+    <li>¿Cuál de las siguientes características es fundamental para Big Data?</li>
+    <input type="radio" name="r3" id="r3" value="5"/>Volumen<br/>
+    <input type="radio" name="r3" id="r3" value="0"/>Memoria<br/>
+    <input type="radio" name="r3" id="r3" value="0"/>Unidad central de procesamiento (CPU) <br/>
+    <input type="radio" name="r3" id="r3" value="0"/>Velocidad<br/>
+
+    <li>¿Qué técnica se utiliza para extraer información significativa de grandes conjuntos de datos no estructurados?</li>
+    <input type="radio" name="r4" id="r4" value="0"/>Búsqueda por índices<br/>
+    <input type="radio" name="r4" id="r4" value="5"/>Minería de datos<br/>
+    <input type="radio" name="r4" id="r4" value="0"/>Reducción de datos<br/>
+    <input type="radio" name="r4" id="r4" value="0"/>Compresión de datos<br/>
+  </ul>
+</form>
+</div>
+<input type="button" value="Calificar" onclick="califica()">
+<p></p>
+<p id="total">   </p>
+<p id="comentario">   </p>
+<input type="button" onclick="generar()" value="Ver resultados"/> <br/>
+<iframe frameborder="0" width="600" height="500"></iframe>
+</div>
 </body>
 </html>
